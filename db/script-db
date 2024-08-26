@@ -1,0 +1,12 @@
+
+CREATE DATABASE unbdbesportes;
+
+CREATE TABLE IF NOT EXISTS `unbdbesportes`.`evento` (
+  `idevento` INT NOT NULL AUTO_INCREMENT,
+  `data` DATETIME NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  PRIMARY KEY (`idevento`))
+ENGINE = InnoDB;
+
+INSERT INTO evento (data, nome)
+   VALUES ('2024-01-01 00:00:00', 'copa 2024 AABB de futebol');
