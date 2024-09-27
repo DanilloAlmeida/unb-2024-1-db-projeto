@@ -10,7 +10,7 @@ public class ConnectionFactory {
         try {
             System.out.println("recuperei a conexão");
             return DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/unbdbesportes?user=root&password=0843Wajed@2");
+                    .getConnection("jdbc:mysql://localhost:3306/unbdbesportes?user=root&password=root");
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
