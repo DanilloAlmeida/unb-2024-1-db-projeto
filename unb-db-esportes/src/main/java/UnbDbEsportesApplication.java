@@ -2,6 +2,9 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -54,7 +57,15 @@ public class UnbDbEsportesApplication {
         String nomeEvento = teclado.next();
 
         System.out.println("Digite a data do evento");
-        String dataEvento = teclado.next();
+        String dataEventoEnt = teclado.next();
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataEvento = null;
+        try {
+            dataEvento = formato.parse(dataEventoEnt);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("dados recebidos:");
         System.out.println("nome: " + nomeEvento);

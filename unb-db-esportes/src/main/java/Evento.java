@@ -1,8 +1,10 @@
+import java.util.Date;
+
 public class Evento {
     private String nomeEvento;
-    private String dataEvento;
+    private Date dataEvento;
 
-    public Evento (String nome, String dataEvento){
+    public Evento (String nome, Date dataEvento){
         this.nomeEvento = nome;
         this.dataEvento = dataEvento;
     }
@@ -16,7 +18,7 @@ public class Evento {
         return nomeEvento;
     }
 
-    public String getDataEvento() {
+    public Date getDataEvento() {
         return dataEvento;
     }
 }

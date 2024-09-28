@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +21,8 @@ public class EventoDAO {
                 "VALUES (?, ?);";
         try {
             PreparedStatement ppStt = conn.prepareStatement(sql);
-            ppStt.setString(1, evento.getDataEvento());
+            ppStt.setDate(1, (java.sql.Date) evento.getDataEvento());
+//            ppStt.setString(2, evento.getNomeEvento());
             ppStt.setString(2, evento.getNomeEvento());
             ppStt.execute();
         } catch (SQLException e){
@@ -40,7 +42,7 @@ public class EventoDAO {
             while (resultSet.next()){
 //                Integer id = resultSet.getInt(1)
                 String nome = resultSet.getString(3);
-                String data = resultSet.getString(2);
+                Date data = resultSet.getDate(2);
                 Evento evento = new Evento(nome, data);
 
                 eventos.add(evento);
