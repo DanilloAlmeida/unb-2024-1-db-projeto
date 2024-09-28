@@ -10,7 +10,7 @@ public class ConnectionFactory {
         try {
             System.out.println("recuperei a conexão");
             return DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/unbdbesportes?user=root&password=root");
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
