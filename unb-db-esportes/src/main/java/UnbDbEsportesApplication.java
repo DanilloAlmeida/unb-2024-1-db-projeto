@@ -60,12 +60,13 @@ public class UnbDbEsportesApplication {
         String dataEventoEnt = teclado.next();
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date dataEvento = null;
+        Date dataEventoU = null;
         try {
-            dataEvento = formato.parse(dataEventoEnt);
+            dataEventoU = formato.parse(dataEventoEnt);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+        java.sql.Date dataEvento = new java.sql.Date(dataEventoU.getTime());
 
         System.out.println("dados recebidos:");
         System.out.println("nome: " + nomeEvento);
@@ -79,10 +80,7 @@ public class UnbDbEsportesApplication {
     }
     private static void listarEventos() throws SQLException {
         System.out.println("Eventos criados: ");
-/*        ResultSet eventos = (ResultSet) service.listarEventosCriados();
-        while (eventos.next()){
-            System.out.println("nome" + eventos.getString(1));
-        }*/
+
         var eventos = service.listarEventosCriados();
         eventos.stream().forEach(System.out::println);
 
